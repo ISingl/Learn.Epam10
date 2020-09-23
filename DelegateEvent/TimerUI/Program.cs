@@ -19,24 +19,13 @@ namespace TimerUI
                 Console.WriteLine("Invalid data");
                 return;
             }
+            Console.WriteLine(String.Empty);
 
             TimerClass timer = new TimerClass(time, "TestTimer");
-            timer.TimerStop += Timer_TimerEvent;
-            timer.RemainingTime += Timer_RemainingTime;
-            timer.TimerStart();
-
+            var user = new UserClassMethod(timer);
+            user.Init();
+            user.Run();
             Console.ReadLine();
-        }
-
-        private static void Timer_RemainingTime(object sender, EventArgs e)
-        {
-            Console.WriteLine($"There are now {((MyEventArgs)e).RemainigTime} seconds until site termination");
-        }
-
-        private static void Timer_TimerEvent(object sender, EventArgs e)
-        {
-            if(sender is TimerClass)
-            Console.WriteLine($"Timer {((TimerClass)sender).Name} stopped");
         }
     }
 }
