@@ -50,6 +50,7 @@ namespace TimerEvent
 
                 Thread.Sleep(1000);
             }
+
             TimerStop?.Invoke(this, null);
         }
     }
